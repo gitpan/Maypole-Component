@@ -1,7 +1,7 @@
 package Maypole::Component;
 use strict;
 use warnings;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 use URI; use URI::QueryParam;
 
 sub component {
@@ -11,7 +11,6 @@ sub component {
     $self->{path} = $url->path;
     $self->parse_path;
     $self->{query} = $url->query_form_hash;
-    use Data::Dumper; print Dumper ($self);
     $self->handler_guts;
     $self->{output};
 }
