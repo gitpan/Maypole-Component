@@ -1,5 +1,8 @@
 Revision history for Perl extension Maypole::Component.
 
+0.03  Mon Apr 12 18:40:39 BST 2004
+    - This time, one that works on the web...
+
 0.02  Mon Apr 12 18:27:13 BST 2004
     - Remove debugging code
 

@@ -1,12 +1,13 @@
 package Maypole::Component;
+use base 'Maypole';
 use strict;
 use warnings;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 use URI; use URI::QueryParam;
 
 sub component {
     my ($r, $path) = @_;
-    my $self = bless { config => $r->config }, (ref $r || $r);
+    my $self = bless { config => $r->config, parent => $r }, "Maypole::Component";
     my $url = URI->new($path);
     $self->{path} = $url->path;
     $self->parse_path;
@@ -15,6 +16,8 @@ sub component {
     $self->{output};
 }
 
+sub get_template_root { shift->{parent}->get_template_root }
+sub view_object { shift->{parent}->view_object }
 
 1;
 __END__
